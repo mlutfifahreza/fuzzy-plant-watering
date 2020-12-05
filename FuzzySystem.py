@@ -2,14 +2,15 @@ from LinguisticVar.Moisture import Moisture
 from LinguisticVar.Intensity import Intensity
 from LinguisticVar.Leaves import Leaves
 from LinguisticVar.Water import Water
+from LinguisticVar.Height import Height
 
 class Rule:
     def __init__(self, lingustics=(), terms=()):
-        self.M, self.I, self.L, self.W = lingustics
-        self.moisture, self.intensity, self.leaves, self.water = terms
+        self.M, self.I, self.H, self.W = lingustics
+        self.moisture, self.intensity, self.height, self.water = terms
     
     def getInferenceValue(self, vars=()):
-        m,i,l = vars
+        m,i,h = vars
         value = 1
         # count and update value for moisture
         term = self.moisture
@@ -25,12 +26,20 @@ class Rule:
             value = min(value, self.I.getDarkValue(i))
         elif term == "bright":
             value = min(value, self.I.getBrightValue(i))
-        # count and update value for leaves
-        term = self.leaves
-        if term == "few":
-            value = min(value, self.L.getFewValue(l))
-        elif term == "many":
-            value = min(value, self.L.getManyValue(l))
+        # # count and update value for leaves
+        # term = self.leaves
+        # if term == "few":
+        #     value = min(value, self.L.getFewValue(l))
+        # elif term == "many":
+        #     value = min(value, self.L.getManyValue(l))
+        # count and update value for height
+        term = self.height
+        if term == "small":
+            value = min(value, self.H.getHeightValue(h))
+        elif term == "medium":
+            value = min(value, self.H.getHeightValue(h))
+        elif term == "big":
+            value = min(value, self.H.getHeightValue(h))
         # find the value of watering
         volume = 0
         term = self.water
@@ -42,14 +51,13 @@ class Rule:
 
 
 # Objects for Linguistic Variable
-M,I,L,W = Moisture(), Intensity(), Leaves(), Water()
-LinguisticVar = (M,I,L,W)
+M,I,H,W = Moisture(), Intensity(), Height(), Water()
+LinguisticVar = (M,I,H,W)
 
 # ADDING RULES
 terms = [
     ("dry","bright","many","lots"),
-    ("dry","bright","many","lots"),
-    ("dry","bright","many","lots")
+    ("dry","bright","many","little"),
     ]
 rules = []
 for term in terms:
@@ -59,14 +67,14 @@ for term in terms:
 # Example
 moistureValue = 6
 intensityValue = 50
-leavesValue = 80
+heightValue = 40
 # Input from user (sensor)
 moistureValue = int(input("moisture : "))
 intensityValue = int(input("intensity : "))
-leavesValue = int(input("leaves count : "))
+heightValue = int(input("height : "))
 
 # PROCESSING
-vars = (moistureValue, intensityValue, leavesValue)
+vars = (moistureValue, intensityValue, heightValue)
 output = 0
 testValueSum = 0
 for rule in rules:
