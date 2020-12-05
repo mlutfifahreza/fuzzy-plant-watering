@@ -3,39 +3,6 @@ from LinguisticVar.Intensity import Intensity
 from LinguisticVar.Leaves import Leaves
 from LinguisticVar.Water import Water
 
-def testVariablesFunction():
-    M = Moisture()
-    value = 18
-    print("Moisture value =",value)
-    print("dry\t:", M.getDryValue(value) )
-    print("moist\t:", M.getMoistValue(value) )
-    print("wet\t:", M.getWetValue(value) )
-    print()
-
-    I = Intensity()
-    value = 40
-    print("Intensity value =",value)
-    print("dark\t:", I.getDarkValue(value))
-    print("bright\t:", I.getBrightValue(value))
-    print()
-
-    L = Leaves()
-    value= 90
-    print("Leaves value =",value)
-    print("Few\t:", L.getFewValue(value))
-    print("Lots\t:", L.getManyValue(value))
-    print()
-
-    L = Water()
-    value = 150
-    print("Water value =",value)
-    little = L.getLittleValue(value)
-    lots = L.getLotsValue(value)
-    print(value,"->",little,"->",L.getLittleDomain(little))
-    print(value,"->",lots,"->",L.getLotsDomain(lots))
-    print()
-# testVariablesFunction()
-
 class Rule:
     def __init__(self, lingustics=(), terms=()):
         self.M, self.I, self.L, self.W = lingustics
@@ -73,21 +40,40 @@ class Rule:
             volume = self.W.getLotsDomain(value)
         return value, volume
 
-# Linguistic Variable Objects
+
+# Objects for Linguistic Variable
 M,I,L,W = Moisture(), Intensity(), Leaves(), Water()
 LinguisticVar = (M,I,L,W)
-# Linguistic Term for each rules
-terms1 = ("dry","bright","many","lots")
-rule1 = Rule(LinguisticVar, terms1)
 
-# Testing
+# ADDING RULES
+terms = [
+    ("dry","bright","many","lots"),
+    ("dry","bright","many","lots"),
+    ("dry","bright","many","lots")
+    ]
+rules = []
+for term in terms:
+    rules.append(Rule(LinguisticVar, term))
+
+# INPUT VALUE
+# Example
 moistureValue = 6
 intensityValue = 50
 leavesValue = 80
+# Input from user (sensor)
 moistureValue = int(input("moisture : "))
 intensityValue = int(input("intensity : "))
-leavesValue = int(input("leaves count :"))
+leavesValue = int(input("leaves count : "))
+
+# PROCESSING
 vars = (moistureValue, intensityValue, leavesValue)
-testValue, testVolume = rule1.getInferenceValue(vars)
-print("Watering value = ", testValue)
-print("Watering volume = ", testVolume, "ml")
+output = 0
+testValueSum = 0
+for rule in rules:
+    testValue, testVolume = rule.getInferenceValue(vars)
+    testValueSum += testValue
+    output += testValue*testVolume
+output /= testValueSum
+
+# OUTPUT
+print("Watering volume = ", int(output), "ml")
