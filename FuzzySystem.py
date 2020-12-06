@@ -53,8 +53,16 @@ class Rule:
         term = self.water
         if term == "little":
             volume = self.W.getLittleDomain(value)
+        elif term == "rather little":
+            volume = self.W.getRatherLittleDomain(value)
+        elif term == "very little":
+            volume = self.W.getVeryLittleDomain(value)
         elif term == "lots":
             volume = self.W.getLotsDomain(value)
+        elif term == "rather lots":
+            volume = self.W.getRatherLotsDomain(value)
+        elif term == "very lots":
+            volume = self.W.geVerytLotsDomain(value)
         return value, volume
 
 
