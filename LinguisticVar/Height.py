@@ -27,7 +27,7 @@ class Height:
         else :
             return 1
     def getBigValue(self, val):
-        f = 50
+        f = 40
         g = 70
         if val < f :
             return 0
