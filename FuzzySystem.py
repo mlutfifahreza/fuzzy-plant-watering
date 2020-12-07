@@ -121,9 +121,9 @@ moistureValue = 6
 temperatureValue = 50
 heightValue = 40
 # Input from user (sensor)
-# moistureValue = int(input("moisture : "))
-# temperatureValue = int(input("temperature : "))
-# heightValue = int(input("height : "))
+moistureValue = int(input("moisture : "))
+temperatureValue = int(input("temperature : "))
+heightValue = int(input("height : "))
 
 # PROCESSING
 vars = (moistureValue, temperatureValue, heightValue)
@@ -133,7 +133,11 @@ for rule in rules:
     testValue, testVolume = rule.getInferenceValue(vars)
     testValueSum += testValue
     output += testValue*testVolume
-output /= testValueSum
+# preventing division by 0
+try:
+    output /= testValueSum
+except:
+    output = testValueSum
 
 # OUTPUT
 print("Watering volume = ", int(output), "ml")
