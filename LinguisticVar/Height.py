@@ -7,7 +7,7 @@ class Height:
     # FUZZIFIER FUNCTIONS
     def getSmallValue(self, val):
         a = 0
-        b = 17
+        b = 20
         if val < a :
             return 1
         elif val < b :
@@ -16,8 +16,8 @@ class Height:
             return 0
     def getMediumValue(self, val):
         c = 15
-        d = 28
-        e = 40
+        d = 33
+        e = 50
         if val < c :
             return 0
         elif val < d :
@@ -28,7 +28,7 @@ class Height:
             return 1
     def getBigValue(self, val):
         f = 50
-        g = 100
+        g = 70
         if val < f :
             return 0
         elif val < g :

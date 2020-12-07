@@ -6,8 +6,8 @@ class Temperature:
 
     # FUZZIFIER FUNCTIONS
     def getColdValue(self, val):
-        a = 18
-        b = 22
+        a = 15
+        b = 25
         if val < a :
             return 1
         elif val < b :
@@ -15,9 +15,9 @@ class Temperature:
         else :
             return 0
     def getNormalValue(self, val):
-        b = 18
-        c = 24
-        d = 30
+        b = 20
+        c = 27
+        d = 32
         if val < b :
             return 0
         elif val < c :
@@ -27,8 +27,8 @@ class Temperature:
         else :
             return 0
     def getHotValue(self, val):
-        c = 27
-        d = 30
+        c = 30
+        d = 36
         if val < c :
             return 0
         elif val < d :

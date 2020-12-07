@@ -8,8 +8,8 @@ class Water:
 
     # FUZZIFIER FUNCTIONS
     def getLittleValue(self, val):
-        a = 75
-        b = 200
+        a = 120
+        b = 240
         if val < a :
             return 1
         elif val < b :
@@ -17,8 +17,8 @@ class Water:
         else :
             return 0
     def getLotsValue(self, val):
-        c = 150
-        d = 400
+        c = 200
+        d = 600
         if val < c :
             return 0
         elif val < d :
@@ -29,36 +29,36 @@ class Water:
     # DEFUZZIFIER FUNCTIONS
     # Rather Little
     def getRatherLittleDomain(self, val):
-        a = 75
-        b = 200
+        a = 120
+        b = 240
         return b - val*val*(b-a)
     
     # Little
     def getLittleDomain(self, val):
-        a = 75
-        b = 200
+        a = 120
+        b = 240
         return b - val*(b-a)
     
     # Very Little
     def getVeryLittleDomain(self, val):
-        a = 75
-        b = 200
+        a = 120
+        b = 240
         return b - math.sqrt(val)*(b-a)
     
     # Rather Lots
     def getRatherLotsDomain(self, val):
-        c = 150
-        d = 400
+        c = 200
+        d = 600
         return c + val*val*(d-c)
 
     # Lots
     def getLotsDomain(self, val):
-        c = 150
-        d = 400
+        c = 200
+        d = 600
         return c + val*(d-c)
 
     # Very Lots
     def getVeryLotsDomain(self, val):
-        c = 150
-        d = 400
+        c = 200
+        d = 600
         return c + math.sqrt(val)*(d-c)

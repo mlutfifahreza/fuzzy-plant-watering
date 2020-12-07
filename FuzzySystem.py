@@ -51,6 +51,7 @@ class Rule:
         elif term == "very lots":
             volume = self.W.getVeryLotsDomain(value)
         # function output
+        # print("Moisture is {0} AND Temperature is {1} AND Height is {2}".format(self.moisture, self.temperature, self.height))
         return value, volume
 
 
@@ -121,23 +122,39 @@ moistureValue = 6
 temperatureValue = 50
 heightValue = 40
 # Input from user (sensor)
-moistureValue = int(input("moisture : "))
-temperatureValue = int(input("temperature : "))
-heightValue = int(input("height : "))
+print("\n---------------------------")
+print("PLANT WATERING FUZZY SYSTEM")
+print("---------------------------")
+moistureValue = int(input("Moisture ({0}..{1})\t: ".format(M.min, M.max)))
+temperatureValue = int(input("Temperature ({0}..{1})\t: ".format(T.min, T.max)))
+heightValue = int(input("Height ({0}..{1}) \t: ".format(H.min, H.max)))
 
 # PROCESSING
 vars = (moistureValue, temperatureValue, heightValue)
-output = 0
-testValueSum = 0
-for rule in rules:
-    testValue, testVolume = rule.getInferenceValue(vars)
-    testValueSum += testValue
-    output += testValue*testVolume
+totalVolume = 0
+totalValue = 0
+for i in range(len(rules)):
+    testValue, testVolume = rules[i].getInferenceValue(vars)
+    totalValue += testValue
+    totalVolume += testValue*testVolume
+    # print(i)
+    # if (testValue > 0):
+#         print("Value = {0}, Volume = {1}".format(testValue,testVolume))
+#         print()
+# print("Total volume =",totalVolume)
+# print("Total value =",totalValue)
+volume = 0
 # preventing division by 0
 try:
-    output /= testValueSum
+    volume = totalVolume/totalValue
 except:
-    output = testValueSum
+    volume = totalValue
 
 # OUTPUT
-print("Watering volume = ", int(output), "ml")
+print("\n<- Output ->")
+print("Watering volume = ", int(volume), "ml")
+input("\n> Press enter to exit")
+print("-------- Made By --------")
+print("> Dewa Nyoman Dharma")
+print("> Fadhlan Pasyah")
+print("> Muhammad Lutfi Fahreza")
