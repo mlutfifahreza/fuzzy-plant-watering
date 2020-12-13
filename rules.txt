@@ -1,0 +1,27 @@
+IF Moisture is wet AND Temperature is cold AND Heigth is small THEN Water is very little
+IF Moisture is wet AND Temperature is normal AND Heigth is small THEN Water is very little
+IF Moisture is wet AND Temperature is hot AND Heigth is small THEN Water is little
+IF Moisture is moist AND Temperature is cold AND Heigth is small THEN Water is little
+IF Moisture is moist AND Temperature is normal AND Heigth is small THEN Water is little
+IF Moisture is moist AND Temperature is hot AND Heigth is small THEN Water is rather little
+IF Moisture is dry AND Temperature is cold AND Heigth is small THEN Water is rather little
+IF Moisture is dry AND Temperature is normal AND Heigth is small THEN Water is rather lots
+IF Moisture is dry AND Temperature is hot AND Heigth is small THEN Water is rather lots
+IF Moisture is wet AND Temperature is cold AND Heigth is medium THEN Water is little
+IF Moisture is wet AND Temperature is normal AND Heigth is medium THEN Water is little
+IF Moisture is wet AND Temperature is hot AND Heigth is medium THEN Water is rather little
+IF Moisture is moist AND Temperature is cold AND Heigth is medium THEN Water is rather little
+IF Moisture is moist AND Temperature is normal AND Heigth is medium THEN Water is rather lots
+IF Moisture is moist AND Temperature is hot AND Heigth is medium THEN Water is rather lots
+IF Moisture is dry AND Temperature is cold AND Heigth is medium THEN Water is lots
+IF Moisture is dry AND Temperature is normal AND Heigth is medium THEN Water is lots
+IF Moisture is dry AND Temperature is hot AND Heigth is medium THEN Water is very lots
+IF Moisture is wet AND Temperature is cold AND Heigth is big THEN Water is rather lots
+IF Moisture is wet AND Temperature is normal AND Heigth is big THEN Water is rather lots
+IF Moisture is wet AND Temperature is hot AND Heigth is big THEN Water is lots
+IF Moisture is moist AND Temperature is cold AND Heigth is big THEN Water is lots
+IF Moisture is moist AND Temperature is normal AND Heigth is big THEN Water is lots
+IF Moisture is moist AND Temperature is hot AND Heigth is big THEN Water is lots
+IF Moisture is dry AND Temperature is cold AND Heigth is big THEN Water is lots
+IF Moisture is dry AND Temperature is normal AND Heigth is big THEN Water is very lots
+IF Moisture is dry AND Temperature is hot AND Heigth is big THEN Water is very lots
