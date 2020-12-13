@@ -23,7 +23,7 @@ class Height:
         elif val < d :
             return (val-c)/(d-c)
         elif val < e :
-            return (val-d)/(e-d)
+            return (e-val)/(e-d)
         else :
             return 1
     def getBigValue(self, val):
