@@ -6,8 +6,8 @@ This system will determine the amount of water a system should give to plant usi
 - Fadhlan Pasyah A F - 18/427576/PA/18536 
 # Linguistic Variables
 ## Input
-- Moisture (wet, moist, dry)
-- Temperature (cold, normal, hot)
-- Heigth (small, medium, big)
+- Moisture (wet, moist, dry) in % of water in soil
+- Temperature (cold, normal, hot) in degrees celcius
+- Heigth (small, medium, big) in cm
 ## Output 
-- Water (very little, little, rather little, rather lots, lots, very lots)
+- Water (very little, little, rather little, rather lots, lots, very lots) in ml of water
