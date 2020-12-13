@@ -6,7 +6,7 @@ class Height:
     
     # FUZZIFIER FUNCTIONS
     def getSmallValue(self, val):
-        a = 0
+        a = 8
         b = 20
         if val < a :
             return 1
