@@ -2,7 +2,7 @@ import math
 
 class Water:
     # T = {Little, Lots}
-    def __init__(self, min=0, max=600):
+    def __init__(self, min=0, max=800):
         self.min = min
         self.max = max
 
